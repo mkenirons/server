@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000;
 var bodyParser = require('body-parser')
 
 // parse application/x-www-form-urlencoded
@@ -85,9 +85,7 @@ app.delete('/api/book/:id',(req, res)=>{
   })
 })
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/../build/index.html'));
-  });
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
